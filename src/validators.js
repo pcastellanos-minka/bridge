@@ -3,7 +3,7 @@ const BANK_WALLET = 'bbva'
 const SCHEMA_DEF = 'tel'
 
 // Factor for usd is 100
-const USD_FACTOR = 100
+const USD_FACTOR = 1
 
 // Address regex used for validation and component extraction
 const ADDRESS_REGEX =

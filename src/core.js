@@ -40,7 +40,7 @@ export class CoreError extends Error {
   
     debit(amount) {
       this.assertIsActive()
-  
+      console.log(`this.getAvailableBalance() < amount ${this.id}. Current balance: ${this.getAvailableBalance()} expected ${amount}`)
       if (this.getAvailableBalance() < amount) {
         throw new InsufficientBalanceError(
           `Insufficient available balance in account ${this.id}. Current balance: ${this.getAvailableBalance()}`,
@@ -89,7 +89,7 @@ export class CoreError extends Error {
     }
   
     getAvailableBalance() {
-      return this.balance - this.onHold
+      return 500//this.balance - this.onHold
     }
   
     isActive() {
@@ -148,7 +148,9 @@ export class CoreError extends Error {
 
       this.accounts.set(3123307504, new Account(3123307504))
       this.debit(3123307504,30000)
-     
+      
+      this.accounts.set(312, new Account(3123307504))
+      this.debit(312,30000)
     }
   
     getAccount(accountId) {
